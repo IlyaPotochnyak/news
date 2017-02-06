@@ -19,12 +19,12 @@ function news_insert($data)
   //         ('" . $data['title'] ."', '" . $data['title'] ."')
   // ";
   $date = date("d.m.Y H : i : s");
-  $u_date = date("U");
-  $sql = "INSERT INTO news (date, u_date, title, text)
+    $u_date = date("U");
+    $sql = "INSERT INTO news (date, u_date, title, text)
   VALUES ('" . $date ."', '" . $u_date ."', '" . $data['title'] ."', '" . $data['text'] ."')";
-  // echo $sql;
+    // echo $sql;
 
-  sql_exec($sql);
+    sql_exec($sql);
 }
 
 
