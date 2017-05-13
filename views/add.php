@@ -1,22 +1,20 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-  </head>
-  <body>
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
 
-    <form  action="/add.php" method="post" enctype="multipart/form-data">
-      <label for="title">Заголовок</label>
-      <input type="text" name="title" id="title"><br>
-      <label for="text">Текст новости</label>
-      <input type="text" name="text" id="text">
-      <input type="submit">
-    </form>
-    <div class="">
-      <br>
-      <a href="/../index.php">На главную</a>
-    </div>
+<form action="/../models/add.php" method="post">
+    Заголовок<input type="text" name="title"><br>
+    Текст новости<input type="text" name="newText"><br>
+    <input type="submit">
 
-  </body>
+</form>
+
+</body>
 </html>

@@ -1,31 +1,42 @@
 <?php
+/**
+ * Created by PhpStorm.
+ * User: potoc
+ * Date: 11.05.2017
+ * Time: 12:05
+ */
 
-require_once __DIR__ . '/../functions/sql.php';
-function news_getAll()
-{
-  sqlConnect();
+require __DIR__ . '/../functions/sql.php';
 
-  $sql = 'SELECT * FROM news';
 
-  return sql_query($sql);
+function news_getAll() {
+    sql_connect();
+    $sql = 'SELECT * FROM news ORDER BY date DESC';
 
+
+    $res = mysql_query($sql);
+
+    $ret = [];
+
+   while (false !== $row = mysql_fetch_assoc($res)) {
+       $ret[] = $row;
+   }
+//   var_dump($ret);
+    return $ret;
 }
 
-function news_insert($data)
-{
-  // $sql = "ISERT INTO news
-  //         (title, text)
-  //         VALUES
-  //         ('" . $data['title'] ."', '" . $data['title'] ."')
-  // ";
-  $date = date("d.m.Y H : i : s");
-    $u_date = date("U");
-    $sql = "INSERT INTO news (date, u_date, title, text)
-  VALUES ('" . $date ."', '" . $u_date ."', '" . $data['title'] ."', '" . $data['text'] ."')";
-    // echo $sql;
+function news_getOne($title) {
+    sql_connect();
+    $sql = "SELECT * FROM news WHERE title='".$title."'";
 
-    sql_exec($sql);
+
+    $res = mysql_query($sql);
+
+    $ret = [];
+
+    while (false !== $row = mysql_fetch_assoc($res)) {
+        $ret[] = $row;
+    }
+//   var_dump($ret);
+    return $ret;
 }
-
-
- ?>

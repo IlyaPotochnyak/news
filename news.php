@@ -1,3 +1,20 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: potoc
+ * Date: 13.05.2017
+ * Time: 14:55
+ */
+
+require __DIR__ . '/models/news.php';
+
+$title = $_GET['title'];
+//var_dump(news_getOne($title));
+$news = news_getOne($title);
+
+include __DIR__ . '/views/index.php';
+?>
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -9,12 +26,8 @@
 </head>
 <body>
 
-<?php foreach ($news as $item) { ?>
-    <h3><a href="news.php?title=<?php echo $item['title']?>"> <? echo $item['title'] . '<br>'; ?></a></h3>
-    <? echo $item['newText'] . '<br>'; ?>
-    <? echo $item['date'] . '<br>';
+<a href="index.php">На главную</a>
 
-} ?>
-<br>
+
 </body>
 </html>

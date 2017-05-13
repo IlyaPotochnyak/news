@@ -1,30 +1,26 @@
 <?php
+/**
+ * Created by PhpStorm.
+ * User: potoc
+ * Date: 11.05.2017
+ * Time: 11:51
+ */
 
-function sqlConnect()
+function sql_connect()
 {
-  mysql_connect('localhost', 'root', '');
-  mysql_select_db('news');# code...
+    mysql_connect('localhost', 'root', '');
+    mysql_select_db('news');
+
 }
 
-function sql_exec($sql)
-{
-  sqlConnect();
-  mysql_query($sql);
+function news_add($newItem) {
+    sql_connect();
 
+//    $sql = "INSERT INTO news ('date', 'title', 'newText')
+//            VALUES ('".$newItem['date']."', '".$newItem['title']."', '".$newItem['newText']."')";
+$sql = "INSERT INTO news (date, title, newText) 
+            VALUES ('".$newItem['date']."',
+             '".$newItem['title']."', '".$newItem['newText']."')";
+
+    mysql_query($sql);
 }
-
-function sql_query($sql)
-{
-  sqlConnect();
-  $res = mysql_query($sql);
-
-  $ret = [];
-  while (false !== $row = mysql_fetch_assoc($res)) {
-    $ret[] = $row;
-  }
-  arsort($ret);
-  return $ret;# code...
-}
-
-
- ?>
