@@ -14,7 +14,7 @@ function news_getAll() {
     $sql = 'SELECT * FROM news ORDER BY date DESC';
 
 
-    $res = mysql_query($sql);
+    $res = mysql_query($sql); var_dump($res); die;
 
     $ret = [];
 

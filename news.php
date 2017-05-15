@@ -16,5 +16,4 @@ include __DIR__ . '/views/index.php';
 ?>
 
 
-
 <a href="index.php">На главную</a>
